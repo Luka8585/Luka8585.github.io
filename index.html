@@ -38,6 +38,7 @@
           class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
           Yes
         </button>
+        <audio id="sound1" src="./audio1.mp3" preload="auto"></audio>
         <button id="noButton"
           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
           No
@@ -45,8 +46,6 @@
       </div>
     </div>
   </div>
-
-  <audio controls style="display:none" autoplay> <source src="./audio1.mp3" type="audio/ogg"> <source src="./audio1.mp3" type="audio/mpeg"> </audio>
 
   <script type="module">
     import confetti from 'https://cdn.skypack.dev/canvas-confetti';
@@ -71,6 +70,7 @@
     ];
   
     noButton.addEventListener('click', function() {
+      document.getElementById('sound1').play()
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
